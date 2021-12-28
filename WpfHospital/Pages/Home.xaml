@@ -1,0 +1,55 @@
+﻿<Page x:Class="WpfHospital.Pages.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHospital.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Home">
+
+    <Grid Margin="0,0,-665,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="9" Orientation="Horizontal"/>
+        <Button x:Name="first_page" Content=" Главная" Grid.Row="1"/>
+        <Button x:Name="employees" Content=" Сотрудники" Grid.Row="2"/>
+        <Button x:Name="wards" Content=" Больные" Grid.Row="3"/>
+        <Button x:Name="out" Content=" Выйти" Grid.Row="7"/>
+        <Button x:Name="add" Content="Добавить" Grid.Row="0" Grid.Column="1"/>
+        <Button x:Name="redakt" Content="Редакт" Grid.Row="0" Grid.Column="2"/>
+        <Button x:Name="discharge" Content="Выписать" Grid.Row="0" Grid.Column="3"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="9">
+            <ListView x:Name="ListEmployee" Height="1000" ItemsSource="{Binding employee}">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="true">
+                        <GridViewColumn Header="id" Width="20" DisplayMemberBinding="{Binding id_pat}"/>
+                        <GridViewColumn Header="ФИО" Width="150" DisplayMemberBinding="{Binding FullName}"/>
+                        <GridViewColumn Header="Пол" Width="50" DisplayMemberBinding="{Binding sex}"/>
+                        <GridViewColumn Header="Возраст" Width="150" DisplayMemberBinding="{Binding birthDate}"/>
+                        <GridViewColumn Header="Диагноз" Width="200" DisplayMemberBinding="{Binding diagnosis}"/>
+                        <GridViewColumn Header="Способ поступления" Width="150" DisplayMemberBinding="{Binding way}"/>
+                        <GridViewColumn Header="Дата поступления" Width="150" DisplayMemberBinding="{Binding arrival_date}"/>
+                        <GridViewColumn Header="Прочее описание" Width="300" DisplayMemberBinding="{Binding other_description}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
